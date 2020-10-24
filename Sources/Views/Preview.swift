@@ -23,7 +23,6 @@ public struct PreviewScheme: ViewModifier {
       content
         .environment(\.colorScheme, colorScheme)
         .preferredColorScheme(colorScheme)
-        .padding()
     }
   }
 }
