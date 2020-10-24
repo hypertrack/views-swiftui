@@ -19,17 +19,17 @@ public struct VisitStatus: View {
   public var body: some View {
     HStack(spacing: 0) {
       Spacer()
-      if self.text.isEmpty {
+      if text.isEmpty {
         EmptyView()
       } else {
-        Text(self.text)
+        Text(text)
           .font(.smallMedium)
           .foregroundColor(.white)
       }
       Spacer()
     }
-    .padding(self.text.isEmpty ? 0 : 10)
-    .background(self.getBackground())
+    .padding(text.isEmpty ? 0 : 10)
+    .background(getBackground())
   }
   
   private func getBackground() -> Color {

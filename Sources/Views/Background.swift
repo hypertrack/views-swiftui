@@ -2,7 +2,7 @@ import SwiftUI
 
 extension View {
   @inlinable public func appBackground() -> some View {
-    self.modifier(AppBackground())
+    modifier(AppBackground())
   }
 }
 
@@ -12,6 +12,6 @@ public struct AppBackground: ViewModifier {
   public init() { }
   
   public func body(content: Content) -> some View {
-    return content.background(colorScheme == .dark ? Color.haiti : .white)
+    content.background(colorScheme == .dark ? Color.haiti : .white)
   }
 }

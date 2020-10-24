@@ -24,9 +24,9 @@ public struct DoneAlert: View {
         VStack {
           AnimatedIcon()
             .scaledToFit()
-          Text(self.title)
+          Text(title)
             .font(.largeBold)
-            .foregroundColor(self.colorScheme == .dark ? .gunPowder : .saltBox)
+            .foregroundColor(colorScheme == .dark ? .gunPowder : .saltBox)
             .multilineTextAlignment(.center)
             .lineLimit(2)
           Spacer()
@@ -43,9 +43,9 @@ public struct DoneAlert: View {
         UINotificationFeedbackGenerator()
           .notificationOccurred(.success)
       }
-      .onReceive(self.timer) { _ in
+      .onReceive(timer) { _ in
         withAnimation {
-          self.visible = false
+          visible = false
         }
       }
     }
@@ -56,7 +56,7 @@ private struct AnimatedIcon: UIViewRepresentable {
   @Environment(\.colorScheme) var colorScheme
   
   func makeUIView(context: Context) -> AnimatedDoneIcon {
-    AnimatedDoneIcon(fillColor: self.colorScheme == .dark ? .gunPowder : .saltBox)
+    AnimatedDoneIcon(fillColor: colorScheme == .dark ? .gunPowder : .saltBox)
   }
 
   func updateUIView(_ uiView: AnimatedDoneIcon, context: Context) { }
@@ -97,12 +97,12 @@ private class AnimatedDoneIcon: UIView {
     let animatableLayer = CAShapeLayer()
     animatableLayer.path = animatablePath.cgPath
     animatableLayer.fillColor = UIColor.clear.cgColor
-    animatableLayer.strokeColor = self.fillColor.cgColor!
+    animatableLayer.strokeColor = fillColor.cgColor!
     animatableLayer.lineWidth = 9
     animatableLayer.lineCap = .round
     animatableLayer.lineJoin = .round
     animatableLayer.strokeEnd = 0
-    self.layer.addSublayer(animatableLayer)
+    layer.addSublayer(animatableLayer)
     
     let animation = CABasicAnimation(keyPath: "strokeEnd")
     animation.duration = 0.3
@@ -131,12 +131,12 @@ private struct Viewer: View {
   var body: some View {
     ZStack {
       Button {
-        self.visible.toggle()
+        visible.toggle()
       } label: {
         Text("Show")
       }
-      if self.visible {
-        DoneAlert(title: "Hello world", duration: 1, visible: self.$visible)
+      if visible {
+        DoneAlert(title: "Hello world", duration: 1, visible: $visible)
       }
     }
   }

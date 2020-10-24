@@ -13,10 +13,10 @@ public struct RoundedStack<Content: View>: View {
       VStack(spacing: 0.0) {
         Spacer()
         VStack(spacing: 0.0) {
-          self.content()
+          content()
         }
         .frame(height: 88.0)
-        .background(self.colorScheme == .dark ? Color.gunPowder : .white)
+        .background(colorScheme == .dark ? Color.gunPowder : .white)
         .cornerRadius(10.0)
         .shadow(radius: 10.0)
       }

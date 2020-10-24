@@ -17,22 +17,22 @@ public struct DeliveryCell: View {
   public var body: some View {
     GeometryReader { geometry in
       Button(action: {
-        self.onTapAction()
+        onTapAction()
       }, label: {
         HStack {
           VStack(alignment: .leading) {
-            Text(self.title)
+            Text(title)
               .font(.normalHighBold)
-              .foregroundColor(self.colorScheme == .dark ? .white : .gunPowder)
-            if self.subTitle.isEmpty == false {
-              Text(self.subTitle)
+              .foregroundColor(colorScheme == .dark ? .white : .gunPowder)
+            if subTitle.isEmpty == false {
+              Text(subTitle)
                 .font(.tinyMedium)
-                .foregroundColor(self.colorScheme == .dark ? .titanWhite : .greySuit)
+                .foregroundColor(colorScheme == .dark ? .titanWhite : .greySuit)
                 .padding(.top, 4)
             }
           }
           Spacer()
-          Image(systemName: "chevron.right").foregroundColor(self.colorScheme == .dark ? .white : .gunPowder)
+          Image(systemName: "chevron.right").foregroundColor(colorScheme == .dark ? .white : .gunPowder)
         }
         .frame(width: geometry.size.width)
       })
@@ -80,28 +80,28 @@ public struct ContentCell: View {
   public var body: some View {
     HStack {
       VStack(alignment: .leading) {
-        Text(self.title)
+        Text(title)
           .font(.normalHighBold)
-          .foregroundColor(self.colorScheme == .dark ? .white : .gunPowder)
-        if self.subTitle.isEmpty == false {
-          Text(self.subTitle)
+          .foregroundColor(colorScheme == .dark ? .white : .gunPowder)
+        if subTitle.isEmpty == false {
+          Text(subTitle)
             .font(.tinyMedium)
-            .foregroundColor(self.colorScheme == .dark ? .titanWhite : .greySuit)
+            .foregroundColor(colorScheme == .dark ? .titanWhite : .greySuit)
             .padding(.top, 4)
         }
       }
-      .padding(.leading, self.leadingPadding)
+      .padding(.leading, leadingPadding)
       .padding(.top, 8)
       Spacer()
-      if self.isCopyButtonEnabled {
+      if isCopyButtonEnabled {
         Button {
-          self.onCopyAction(self.subTitle)
+          onCopyAction(subTitle)
         } label: {
           Text("Copy")
             .font(.normalHighBold)
-            .foregroundColor(self.colorScheme == .dark ? .white : .gunPowder)
+            .foregroundColor(colorScheme == .dark ? .white : .gunPowder)
         }
-          .padding(.trailing, 16)
+        .padding(.trailing, 16)
       }
     }
   }

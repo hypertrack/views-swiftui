@@ -50,15 +50,15 @@ public struct TextFieldBlock: View {
   public var body: some View {
     VStack(alignment: .leading, spacing: 0) {
       
-      switch self.nameStyle {
+      switch nameStyle {
       case .dimmed:
-        Text(self.name)
+        Text(name)
           .font(.smallMedium)
           .foregroundColor(.greySuit)
       case .pronounced:
-        Text(self.name)
+        Text(name)
           .font(.smallMedium)
-          .foregroundColor(self.colorScheme == .dark ? .white : .gunPowder)
+          .foregroundColor(colorScheme == .dark ? .white : .gunPowder)
       }
       CustomTextField(
         text: $text,
@@ -77,7 +77,7 @@ public struct TextFieldBlock: View {
         .foregroundColor(.ghost)
         .frame(height: 1.0, alignment: .bottom)
         .padding(.top, 6)
-      Text(self.errorText)
+      Text(errorText)
         .lineLimit(3)
         .font(.smallMedium)
         .foregroundColor(.radicalRed)
@@ -102,13 +102,13 @@ private struct CustomTextField: UIViewRepresentable {
   
   func makeUIView(context: Context) -> UITextField {
     let textField = UITextField(frame: .zero)
-    textField.keyboardType = self.keyboardType
-    textField.returnKeyType = self.returnKeyType
+    textField.keyboardType = keyboardType
+    textField.returnKeyType = returnKeyType
     textField.delegate = context.coordinator
-    textField.isSecureTextEntry = self.isSecureTextEntry
+    textField.isSecureTextEntry = isSecureTextEntry
     textField.autocorrectionType = .no
-    textField.enablesReturnKeyAutomatically = self.enablesReturnKeyAutomatically
-    textField.textContentType = self.textContentType
+    textField.enablesReturnKeyAutomatically = enablesReturnKeyAutomatically
+    textField.textContentType = textContentType
     return textField
   }
   
@@ -126,22 +126,22 @@ private struct CustomTextField: UIViewRepresentable {
   class Coordinator: NSObject, UITextFieldDelegate {
     var parent: CustomTextField
     
-    init(_ textField: CustomTextField) { self.parent = textField }
+    init(_ textField: CustomTextField) { parent = textField }
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-      if !self.parent.focused { self.parent.wantsToBecomeFocused() }
+      if !parent.focused { parent.wantsToBecomeFocused() }
       return true
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-      self.parent.enterButtonPressed()
+      parent.enterButtonPressed()
       return true
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
       if let text = textField.text,
          let textRange = Range(range, in: text) {
-        self.parent.text = text.replacingCharacters(in: textRange, with: string)
+        parent.text = text.replacingCharacters(in: textRange, with: string)
       }
       return false
     }

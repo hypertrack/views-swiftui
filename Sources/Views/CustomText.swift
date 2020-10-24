@@ -31,11 +31,11 @@ private struct DefaultTextViewModifier: ViewModifier {
 
 public extension CustomText {
   func grayTextColor() -> some View {
-    self.modifier(GrayTextViewModifier())
+    modifier(GrayTextViewModifier())
   }
   
   func defaultTextColor() -> some View {
-    self.modifier(DefaultTextViewModifier(colorScheme: self._colorScheme))
+    modifier(DefaultTextViewModifier(colorScheme: _colorScheme))
   }
 }
 

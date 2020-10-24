@@ -23,8 +23,8 @@ public struct Navigation<Leading: View, Trailing: View, Content: View>: View {
   
   public var body: some View {
     ZStack {
-      self.nagivationView.zIndex(1)
-      self.content().zIndex(0)
+      nagivationView.zIndex(1)
+      content().zIndex(0)
     }
   }
   
@@ -32,22 +32,22 @@ public struct Navigation<Leading: View, Trailing: View, Content: View>: View {
     GeometryReader { geometry in
         VStack(spacing: 0) {
           Rectangle()
-            .fill(self.colorScheme == .dark ? Color.gunPowder : .white)
+            .fill(colorScheme == .dark ? Color.gunPowder : .white)
             .frame(height: geometry.safeAreaInsets.top > 20.0 ? geometry.safeAreaInsets.top : 20)
           ZStack {
             HStack {
-              self.leading()
+              leading()
                 .padding(.leading, 16)
               Spacer()
-              self.trailing()
+              trailing()
                 .padding(.trailing, 16)
             }
             .frame(width: geometry.size.width, height: 44)
-            .background(self.colorScheme == .dark ? Color.gunPowder : .white)
-            Text(self.title)
+            .background(colorScheme == .dark ? Color.gunPowder : .white)
+            Text(title)
               .frame(width: geometry.size.width / 1.5, height: 44)
               .font(.bigMedium)
-              .foregroundColor(self.colorScheme == .dark ? .white : .black)
+              .foregroundColor(colorScheme == .dark ? .white : .black)
           }
           Spacer()
         }

@@ -16,12 +16,12 @@ public struct CustomSection<Content: View>: View {
         Spacer()
         Text(header)
           .font(.normalLowMedium)
-          .foregroundColor(self.colorScheme == .dark ? .black : .gunPowder)
+          .foregroundColor(colorScheme == .dark ? .black : .gunPowder)
         Spacer()
       }
-      self.content()
+      content()
     }
-    .listRowBackground(self.colorScheme == .dark ? Color.gunPowder : .lilyWhite)
+    .listRowBackground(colorScheme == .dark ? Color.gunPowder : .lilyWhite)
   }
 }
 

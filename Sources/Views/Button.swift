@@ -25,7 +25,7 @@ private struct PrimaryButtonStyle: ButtonStyle {
       .frame(height: 48)
       .font(.bigBold)
       .foregroundColor(Color.white)
-      .background(self.backgroundForVariant(self.variant, isPressed: configuration.isPressed))
+      .background(backgroundForVariant(variant, isPressed: configuration.isPressed))
       .cornerRadius(24)
   }
   
@@ -34,24 +34,24 @@ private struct PrimaryButtonStyle: ButtonStyle {
     case .normal:
       if isPressed {
         return ZStack {
-          self.gradientGreen
+          gradientGreen
           Color.clear
         }
       } else {
         return ZStack {
-          self.gradientGreen
+          gradientGreen
           Color.black.opacity(0.16)
         }
       }
     case .destructive:
       if isPressed {
         return ZStack {
-          self.gradientRed
+          gradientRed
           Color(UIColor.clear)
         }
       } else {
         return ZStack {
-          self.gradientRed
+          gradientRed
           Color.black.opacity(0.16)
         }
       }
@@ -135,16 +135,16 @@ public struct PrimaryButton: View {
     Button(action: onTapAction) {
       HStack {
         Spacer()
-        Text(self.variant.title)
-          .padding([.leading, .trailing], self.showActivityIndicator ? 0 : 20)
-        if self.showActivityIndicator {
+        Text(variant.title)
+          .padding([.leading, .trailing], showActivityIndicator ? 0 : 20)
+        if showActivityIndicator {
           ButtonActivityIndicator(animating: true)
         }
         Spacer()
       }
     }
-    .buttonStyle(PrimaryButtonStyle(variant: self.variant))
-    .disabled(self.variant.isDisabled)
+    .buttonStyle(PrimaryButtonStyle(variant: variant))
+    .disabled(variant.isDisabled)
   }
 }
 
@@ -202,7 +202,7 @@ public struct SecondaryButton: View {
       }
     }
     .buttonStyle(
-      SecondaryButtonStyle(colorScheme: self._colorScheme)
+      SecondaryButtonStyle(colorScheme: _colorScheme)
     )
   }
 }
@@ -261,7 +261,7 @@ public struct TransparentButton: View {
       }
     }
     .buttonStyle(
-      TransparentButtonStyle(colorScheme: self._colorScheme)
+      TransparentButtonStyle(colorScheme: _colorScheme)
     )
   }
 }
@@ -311,7 +311,7 @@ public struct LinkButton: View {
       }
     }
     .buttonStyle(
-      LinkButtonStyle(colorScheme: self._colorScheme)
+      LinkButtonStyle(colorScheme: _colorScheme)
     )
   }
 }
@@ -347,15 +347,15 @@ public struct RefreshButton: View {
   
   public var body: some View {
     Button(action: onTapAction) {
-      if self.state == .refreshing {
-        ButtonActivityIndicator(color: self.colorScheme == .light ? UIColor.black : .white, animating: true)
+      if state == .refreshing {
+        ButtonActivityIndicator(color: colorScheme == .light ? UIColor.black : .white, animating: true)
       } else {
         RefreshIcon()
           .frame(width: 28, height: 28)
-          .opacity(self.state == .disabled ? 0.5 : 1.0)
+          .opacity(state == .disabled ? 0.5 : 1.0)
       }
     }
-    .disabled(self.state != .enabled)
+    .disabled(state != .enabled)
   }
 }
 
