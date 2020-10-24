@@ -1,7 +1,7 @@
 import SwiftUI
 import UIKit
 
-extension Color {
+public extension Color {
   static let almostWhite    = Color(#colorLiteral(red: 0.9803921569, green: 0.9803921569, blue: 0.9803921569, alpha: 1))
   static let cosmicLatte    = Color(#colorLiteral(red: 0.8784313725, green: 0.9764705882, blue: 0.9215686275, alpha: 1))
   static let lilyWhite      = Color(#colorLiteral(red: 0.9529411765, green: 0.9607843137, blue: 0.9568627451, alpha: 1))
@@ -21,11 +21,11 @@ extension Color {
   static let dodgerBlue     = Color(#colorLiteral(red: 0.03921568627, green: 0.5176470588, blue: 1, alpha: 1))
 }
 
-extension UIColor {
+public extension UIColor {
   static let greySuit       =       #colorLiteral(red: 0.5803921569, green: 0.5725490196, blue: 0.6156862745, alpha: 1)
 }
 
-extension Font {
+public extension Font {
   static let hugeBold            = Font.system(size: 24, weight: .bold)
   static let hugeSemibold        = Font.system(size: 24, weight: .semibold)
   static let largeBold           = Font.system(size: 22, weight: .bold)
@@ -38,6 +38,6 @@ extension Font {
   static let tinyMedium          = Font.system(size: 12, weight: .medium)
 }
 
-extension UIFont {
+public extension UIFont {
   static let smallMedium = UIFont.systemFont(ofSize: 14, weight: .medium)
 }
