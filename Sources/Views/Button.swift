@@ -331,7 +331,7 @@ struct LinkButton_Previews: PreviewProvider {
 
 // MARK: - NavigationRefreshButton
 
-public struct NavigationRefreshButton: View {
+public struct RefreshButton: View {
   public enum State {
     case disabled, enabled, refreshing
   }
@@ -359,25 +359,25 @@ public struct NavigationRefreshButton: View {
   }
 }
 
-struct NavigationefreshButton_Previews: PreviewProvider {
+struct RefreshButton_Previews: PreviewProvider {
   static var previews: some View {
     Group {
-      NavigationRefreshButton(state: .disabled, { })
+      RefreshButton(state: .disabled, { })
         .previewScheme(.light)
         .previewDisplayName("Disabled Light")
-      NavigationRefreshButton(state: .disabled, { })
+      RefreshButton(state: .disabled, { })
         .previewScheme(.dark)
         .previewDisplayName("Disabled Dark")
-      NavigationRefreshButton(state: .enabled, { })
+      RefreshButton(state: .enabled, { })
         .previewScheme(.light)
         .previewDisplayName("Enabled Light")
-      NavigationRefreshButton(state: .enabled, { })
+      RefreshButton(state: .enabled, { })
         .previewScheme(.dark)
         .previewDisplayName("Enabled Dark")
-      NavigationRefreshButton(state: .refreshing, { })
+      RefreshButton(state: .refreshing, { })
         .previewScheme(.light)
         .previewDisplayName("Refreshing Light")
-      NavigationRefreshButton(state: .refreshing, { })
+      RefreshButton(state: .refreshing, { })
         .previewScheme(.dark)
         .previewDisplayName("Refreshing Dark")
     }
@@ -388,7 +388,7 @@ struct NavigationefreshButton_Previews: PreviewProvider {
 
 // MARK: - NavigationBackButton
 
-public struct NavigationBackButton: View {
+public struct BackButton: View {
   @Environment(\.colorScheme) var colorScheme
   private let onTapAction: () -> Void
   
@@ -403,12 +403,12 @@ public struct NavigationBackButton: View {
   }
 }
 
-struct NavigationBackButton_Previews: PreviewProvider {
+struct BackButton_Previews: PreviewProvider {
   static var previews: some View {
     Group {
-      NavigationBackButton {}
+      BackButton {}
         .previewScheme(.light)
-      NavigationBackButton {}
+      BackButton {}
         .previewScheme(.dark)
     }
     .frame(width: 50, height: 50)
