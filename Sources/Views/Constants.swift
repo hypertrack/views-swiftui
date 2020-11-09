@@ -23,6 +23,8 @@ public extension Color {
 
 public extension UIColor {
   static let greySuit       =       #colorLiteral(red: 0.5803921569, green: 0.5725490196, blue: 0.6156862745, alpha: 1)
+  static let gunPowder      =       #colorLiteral(red: 0.2980392157, green: 0.2941176471, blue: 0.3647058824, alpha: 1)
+  static let saltBox        =       #colorLiteral(red: 0.3450980392, green: 0.3411764706, blue: 0.3450980392, alpha: 1)
 }
 
 public extension Font {

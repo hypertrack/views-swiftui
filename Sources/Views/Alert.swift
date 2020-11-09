@@ -76,9 +76,9 @@ private struct Blur: UIViewRepresentable {
 }
 
 private class AnimatedDoneIcon: UIView {
-  let fillColor: Color
+  let fillColor: UIColor
   
-  init(fillColor: Color) {
+  init(fillColor: UIColor) {
     self.fillColor = fillColor
     super.init(frame: CGRect.zero)
   }
@@ -97,7 +97,7 @@ private class AnimatedDoneIcon: UIView {
     let animatableLayer = CAShapeLayer()
     animatableLayer.path = animatablePath.cgPath
     animatableLayer.fillColor = UIColor.clear.cgColor
-    animatableLayer.strokeColor = fillColor.cgColor!
+    animatableLayer.strokeColor = fillColor.cgColor
     animatableLayer.lineWidth = 9
     animatableLayer.lineCap = .round
     animatableLayer.lineJoin = .round
