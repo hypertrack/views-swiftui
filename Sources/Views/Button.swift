@@ -136,7 +136,10 @@ public struct PrimaryButton: View {
       HStack {
         Spacer()
         Text(variant.title)
-          .padding([.leading, .trailing], showActivityIndicator ? 0 : 20)
+          .truncationMode(.middle)
+          .allowsTightening(true)
+          .lineLimit(1)
+          .padding([.leading, .trailing], showActivityIndicator ? 0 : 12)
         if showActivityIndicator {
           ButtonActivityIndicator(animating: true)
         }
