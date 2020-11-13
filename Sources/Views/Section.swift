@@ -16,7 +16,7 @@ public struct CustomSection<Content: View>: View {
         Spacer()
         Text(header)
           .font(.normalLowMedium)
-          .foregroundColor(colorScheme == .dark ? .black : .gunPowder)
+          .foregroundColor(colorScheme == .dark ? .white : .gunPowder)
         Spacer()
       }
       content()
